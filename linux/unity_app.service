@@ -1,0 +1,18 @@
+[Unit]
+Description=Unity application service
+PartOf=graphical-session.target
+[Service]
+Type=notify
+NotifyAccess=all
+WatchdogSec=15s
+Restart=on-failure
+#Restart=always
+Restartsec=5s
+StartLimitInterval=15min
+StartLimitBurst=100
+StartLimitAction=none
+#StartLimitAction=reboot
+Environment=DISPLAY=:0
+ExecStart=/home/user/unity_app/app.x86_64
+[Install]
+WantedBy=graphical-session.target
